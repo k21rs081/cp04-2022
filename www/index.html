@@ -39,6 +39,9 @@
             $('#btnC').click(function(e) {
                 btnCClick(e);
             });
+            $('#btnD').click(function(e) {
+                btnDClick(e);
+            });
             init();
         });
 
@@ -151,6 +154,7 @@
 
 
         // 変数宣言
+        var counter = 0;
         var active = false;
         var startTime = 0;
         var period = 0;
@@ -163,6 +167,7 @@
             $('#btnA').prop('disabled', false);
             $('#btnB').prop('disabled', false);
             $('#btnC').prop('disabled', false);
+            $('#btnD').prop('disabled', false);
 
         }
 
@@ -200,6 +205,10 @@
             $("#remain").html("残り時間 : " + period);
         }
 
+        function btnDClick(e) {
+            counter++;
+            $("#message").html(counter);
+        }
 
         // 繰り返し実行する処理
         function timer() {
@@ -222,6 +231,7 @@
 <body>
     <canvas id="mycanvas" width="200" height="200">Test</canvas>
 
+    <div id="message">count</div>
     <div id="minuteStr">〇</div>
     <div id="secondStr">〇</div>
 
@@ -230,6 +240,7 @@
     <button id="btnA">Start</button>
     <button id="btnB">Stop</button>
     <button id="btnC">Set</button>
+    <button id="btnD">count+</button>
     <input type="number" id="minute" value=0>
     <input type="number" id="second" value=15>
 </body>
